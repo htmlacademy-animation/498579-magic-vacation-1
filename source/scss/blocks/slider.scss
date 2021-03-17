@@ -39,10 +39,16 @@
   &:nth-child(even) {
     .slider__item-text {
       align-self: flex-end;
+      transition: opacity 0.5s 0.2s, transform 0.3s 0.2s;
 
       @media (max-width: $mobile) and (orientation: landscape) {
         align-self: flex-start;
       }
+    }
+
+    &.swiper-slide-next .slider__item-text {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
     }
   }
 
@@ -96,6 +102,9 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  transform: translate3d(30px, 0, 0);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0.3s;
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
@@ -122,6 +131,11 @@
     min-height: 14rem;
     font-size: 1.4rem;
     line-height: 1.5rem;
+  }
+
+  .swiper-slide-active & {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
