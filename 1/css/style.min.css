@@ -1329,7 +1329,7 @@ img {
   border: 0;
   border-radius: 3rem;
   outline: none;
-  transition: width 0.25s ease-in-out; }
+  transition: width 0.3s ease-in; }
   .screen.active .form__field {
     width: calc(100% - 21rem); }
   .form__field:focus {
