@@ -5,6 +5,11 @@
   right: 0;
   padding: 2.7rem 0;
   z-index: 10;
+  visibility: hidden;
+
+  body.loaded & {
+    visibility: visible;
+  }
 
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
@@ -35,6 +40,14 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  transform: translate3d(-30px, 0, 0);
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0, 0.93, 1, 0.93) 0.1s, transform 0.35s cubic-bezier(0, 0.93, 1, 0.93) 0.1s;
+
+  body.loaded & {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -177,6 +190,12 @@
   font-size: 1.2rem;
   line-height: 1.0418;
   color: $c-light;
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0, 0.93, 1, 0.93) 0.4s;
+
+  body.loaded & {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     font-size: 12px;

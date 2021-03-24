@@ -41,7 +41,13 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
-    transition: transform 0.4s ease-in-out;
+    opacity: 0;
+    transition: opacity 0.35s 0.6s;
+
+    body.loaded & {
+      opacity: 1;
+      animation: scale 1s cubic-bezier(0, 0.93, 1, 0.93) 0.5s;
+    }
   }
 
   svg {
@@ -266,5 +272,23 @@
         height: 10px;
       }
     }
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+
+  25% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.13);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }

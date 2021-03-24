@@ -1,4 +1,5 @@
 // modules
+import firstLoad from "./modules/first-load";
 import mobileHeight from './modules/mobile-height-adjust.js';
 import slider from './modules/slider.js';
 import menu from './modules/menu.js';
@@ -10,6 +11,9 @@ import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 
 // init modules
+window.addEventListener(`load`, () => {
+  firstLoad();
+});
 mobileHeight();
 slider();
 menu();
