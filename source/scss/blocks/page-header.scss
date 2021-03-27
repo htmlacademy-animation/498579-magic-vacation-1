@@ -143,6 +143,12 @@
 .page-header__nav {
   display: flex;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0, 0.93, 1, 0.93) 0.4s;
+
+  body.loaded & {
+    opacity: 1;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     position: fixed;
@@ -190,12 +196,6 @@
   font-size: 1.2rem;
   line-height: 1.0418;
   color: $c-light;
-  opacity: 0;
-  transition: opacity 0.35s cubic-bezier(0, 0.93, 1, 0.93) 0.4s;
-
-  body.loaded & {
-    opacity: 1;
-  }
 
   @media (min-width: $stop-scaling) {
     font-size: 12px;

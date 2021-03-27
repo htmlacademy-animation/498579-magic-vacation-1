@@ -14,5 +14,5 @@ export default () => {
 
   setTimeout(() => {
     links[0].classList.add(`active`);
-  }, 600);
+  }, 400);
 };
