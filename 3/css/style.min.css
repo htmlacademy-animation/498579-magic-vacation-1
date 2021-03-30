@@ -2866,7 +2866,8 @@ img {
       background-position: top center, bottom center; } }
 
 .screen--prizes {
-  background-color: #5f458c; }
+  background-color: #5f458c;
+  z-index: 2; }
 
 .screen--game {
   position: relative;

@@ -10468,14 +10468,16 @@ __webpack_require__.r(__webpack_exports__);
 
   overlaySlide.classList.add(`overlay-slide`);
 
-  document.documentElement.append(overlaySlide);
-
   links.forEach((link) => {
     link.addEventListener(`click`, (event) => {
       if (link.getAttribute(`href`) === `#prizes`) {
         event.preventDefault();
 
-        overlaySlide.classList.add(`active`);
+        document.documentElement.append(overlaySlide);
+
+        setTimeout(() => {
+          overlaySlide.classList.add(`active`);
+        }, 0);
 
         setTimeout(() => {
           window.location = link.href;
@@ -10483,6 +10485,8 @@ __webpack_require__.r(__webpack_exports__);
 
       } else {
         overlaySlide.classList.remove(`active`);
+
+        overlaySlide.remove();
       }
     });
   });
