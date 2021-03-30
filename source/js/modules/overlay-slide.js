@@ -6,7 +6,7 @@ export default () => {
 
   links.forEach((link) => {
     link.addEventListener(`click`, (event) => {
-      if (link.getAttribute(`href`) === `#prizes`) {
+      if (link.getAttribute(`href`) === `#prizes` && window.location.hash === `#story`) {
         event.preventDefault();
 
         document.documentElement.append(overlaySlide);
@@ -21,6 +21,7 @@ export default () => {
 
       } else {
         overlaySlide.classList.remove(`active`);
+
         overlaySlide.remove();
       }
     });
