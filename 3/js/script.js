@@ -10470,7 +10470,7 @@ __webpack_require__.r(__webpack_exports__);
 
   links.forEach((link) => {
     link.addEventListener(`click`, (event) => {
-      if (link.getAttribute(`href`) === `#prizes`) {
+      if (link.getAttribute(`href`) === `#prizes` && window.location.hash === `#story`) {
         event.preventDefault();
 
         document.documentElement.append(overlaySlide);
