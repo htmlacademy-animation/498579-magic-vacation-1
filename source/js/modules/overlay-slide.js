@@ -21,6 +21,7 @@ export default () => {
 
       } else {
         overlaySlide.classList.remove(`active`);
+
         overlaySlide.remove();
       }
     });
