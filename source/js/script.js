@@ -10,6 +10,7 @@ import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import overlaySlide from './modules/overlay-slide';
+import rules from './modules/rules';
 
 // init modules
 window.addEventListener(`load`, () => {
@@ -24,6 +25,7 @@ result();
 form();
 social();
 overlaySlide();
+rules();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
