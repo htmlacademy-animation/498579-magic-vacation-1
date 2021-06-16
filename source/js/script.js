@@ -11,6 +11,7 @@ import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import overlaySlide from './modules/overlay-slide';
 import rules from './modules/rules';
+import pageSwitchHandler from "./modules/page-switch-handler.js";
 
 // init modules
 window.addEventListener(`load`, () => {
@@ -26,6 +27,8 @@ form();
 social();
 overlaySlide();
 rules();
+
+pageSwitchHandler();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
