@@ -1,0 +1,17 @@
+.word-container {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  white-space: nowrap;
+
+  & span {
+    transform: translate3d(0, 100%, 0);
+    display: inline-block;
+    vertical-align: sub;
+    line-height: 1;
+
+    .typography-active & {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
