@@ -6,19 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mysterious Vacation</title>
-  <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
 
   <header class="page-header js-header">
     <div class="page-header__wrapper">
-      <a href="#" class="page-header__logo" aria-label="Перейти на страницу FJORD.Inc">
+      <a href="#" class="page-header__logo js-header-logo" aria-label="Перейти на страницу FJORD.Inc">
         <svg width="100" height="15" viewBox="0 0 100 15" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0.26 1.4V14H2.276V8.906H7.334V6.44H2.276V3.848H9.872V1.4H0.26ZM12.733 14.36C15.127 14.36 16.243 12.65 16.243 9.5V1.4H14.263V8.96C14.263 11.21 13.723 11.876 12.733 11.876C11.833 11.876 11.473 11.3 11.347 10.58L9.36702 10.94C9.63702 13.046 10.663 14.36 12.733 14.36ZM18.3918 7.7C18.3918 11.372 22.3878 14.36 27.3198 14.36C32.2518 14.36 36.2478 11.372 36.2478 7.7C36.2478 4.028 32.2518 1.04 27.3198 1.04C22.3878 1.04 18.3918 4.028 18.3918 7.7ZM20.6058 7.7C20.6058 5.378 23.6118 3.524 27.3198 3.524C30.9918 3.524 33.9798 5.378 33.9798 7.7C33.9798 10.004 30.9918 11.858 27.3198 11.858C23.6118 11.858 20.6058 10.004 20.6058 7.7ZM40.403 14V8.906H40.799L49.079 14.702V12.38L44.039 8.906H44.201C47.999 8.906 49.277 7.304 49.277 5.162C49.277 3.092 47.999 1.4 44.201 1.4H38.387V14H40.403ZM43.535 3.722C45.785 3.722 47.045 4.136 47.045 5.432C47.045 6.764 45.785 7.034 43.535 7.034H40.403V3.722H43.535ZM51.6936 1.382V14H57.8676C62.7456 14 66.7236 11.534 66.7236 7.7C66.7236 3.848 62.7456 1.382 57.8676 1.382H51.6936ZM53.7096 11.624V3.722H57.5436C61.5396 3.722 64.4916 5.018 64.4916 7.7C64.4916 10.238 61.5396 11.624 57.5436 11.624H53.7096ZM73.1832 14.018H74.9832V5H73.1832V14.018ZM72.9132 1.976C72.9132 2.57 73.3992 3.092 74.0832 3.092C74.7492 3.092 75.2352 2.57 75.2352 1.976C75.2352 1.382 74.7672 0.805999 74.0832 0.805999C73.3812 0.805999 72.9132 1.382 72.9132 1.976ZM76.7867 14H78.5687V9.104C78.7487 8.006 79.5947 6.962 81.0887 6.962C82.1147 6.962 83.2667 7.448 83.2667 9.554V14H85.0487V9.014C85.0487 6.152 83.2307 4.73 81.3587 4.73C79.9187 4.73 79.0727 5.558 78.5687 6.854V5H76.7867V14ZM90.9898 14.27C93.5098 14.27 95.3818 12.506 95.7238 10.328H94.0498C93.7258 11.3 92.6998 12.02 90.9898 12.02C88.8478 12.02 87.7678 10.922 87.7678 9.59C87.7678 8.24 88.8478 6.962 90.9898 6.962C92.7538 6.962 93.7978 7.844 94.0858 8.924H95.7418C95.4358 6.71 93.6178 4.73 90.9898 4.73C88.0918 4.73 86.1298 7.124 86.1298 9.59C86.1298 12.074 88.1278 14.27 90.9898 14.27ZM97.0693 12.938C97.0693 13.658 97.5553 14.144 98.2753 14.144C98.9953 14.144 99.4813 13.658 99.4813 12.938C99.4813 12.2 98.9953 11.714 98.2753 11.714C97.5553 11.714 97.0693 12.2 97.0693 12.938Z" fill="currentColor"/>
         </svg>
       </a>
       <button class="page-header__toggler js-menu-toggler" type="button" aria-label="Управление мобильным меню"><span>Меню</span></button>
-      <nav class="page-header__nav">
+      <nav class="page-header__nav js-header-nav">
         <div class="page-header__menu js-menu" id="menu">
           <ul>
             <li>
@@ -40,7 +39,7 @@
         </div>
         <div class="page-header__social">
           <div class="social-block js-social-block">
-            <button class="social-block__toggler" aria-label="Управлять блоком с социальными кнопками">
+            <button class="social-block__toggler js-social-toggler" aria-label="Управлять блоком с социальными кнопками">
               <svg width="26" height="22" viewBox="0 0 27 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.6721 7.43664C21.6273 7.43664 23.213 5.85095 23.213 3.89566C23.213 1.94037 21.6273 0.354675 19.6721 0.354675C17.7168 0.354675 16.1311 1.94037 16.1311 3.89566C16.1311 4.19968 16.1728 4.49178 16.2458 4.77345L7.21751 8.95527C6.57519 8.05214 5.52303 7.46049 4.33078 7.46049C2.37549 7.46049 0.789795 9.04618 0.789795 11.0015C0.789795 12.9568 2.37549 14.5425 4.33078 14.5425C5.52303 14.5425 6.57668 13.9508 7.21751 13.0477L16.2458 17.2295C16.1743 17.5112 16.1311 17.8033 16.1311 18.1073C16.1311 20.0626 17.7168 21.6483 19.6721 21.6483C21.6273 21.6483 23.213 20.0626 23.213 18.1073C23.213 16.152 21.6273 14.5663 19.6721 14.5663C18.4798 14.5663 17.4262 15.158 16.7853 16.0611L7.75701 11.8793C7.82854 11.5976 7.87176 11.3055 7.87176 11.0015C7.87176 10.6974 7.83003 10.4053 7.75701 10.1237L16.7853 5.94186C17.4262 6.84499 18.4783 7.43664 19.6721 7.43664Z" fill="currentColor"/>
               </svg>
@@ -169,12 +168,12 @@
           </div>
         </div>
         <div class="slider__controls">
-          <button class="slider__control slider__control--prev js-control-prev" type="button" aria-label="Показать предыдущую историю">
+          <button class="slider__control slider__control_prev slider__control--prev js-control-prev" type="button" aria-label="Показать предыдущую историю">
             <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M11 1L1 11L11 21" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
             </svg>
           </button>
-          <button class="slider__control slider__control--next js-control-next" type="button" aria-label="Показать следующую историю">
+          <button class="slider__control slider__control_next slider__control--next js-control-next" type="button" aria-label="Показать следующую историю">
             <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 1L11 11L1 21" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
             </svg>
@@ -236,33 +235,6 @@
           </ul>
         </div>
       </div>
-      <div class="screen__footer js-footer">
-        <button class="screen__footer-enlarge js-footer-toggler" type="button" aria-label="Показать сообщение">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
-          </svg>
-        </button>
-        <button class="screen__footer-collapse js-footer-toggler" type="button" aria-label="Скрыть сообщение">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="12.3536" y1="0.353553" x2="0.738349" y2="11.9688" stroke="currentColor"/>
-            <line x1="0.738319" y1="0.539925" x2="12.3535" y2="12.1551" stroke="currentColor"/>
-          </svg>
-        </button>
-        <div class="screen__footer-wrapper">
-          <div class="screen__footer-announce">
-            <p class="screen__footer-label">Даты проведения конкурса:</p>
-            <p class="screen__footer-date">01 — 31.05 / 2020</p>
-          </div>
-          <div class="screen__footer-note">
-            <p>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
-              </svg>
-              <span>Скидка&nbsp;15% на&nbsp;единоразовое приобретение путёвки с&nbsp;1&nbsp;июня 2020 по&nbsp;31&nbsp;мая 2022&nbsp;года. Суммируется с&nbsp;другими акциями</span>
-            </p>
-          </div>
-        </div>
-      </div>
     </section>
 
     <section class="screen screen--hidden screen--rules js-scrollspy" id="rules">
@@ -287,18 +259,6 @@
             </li>
           </ol>
           <a href="#game" class="rules__link js-rules-link btn">Погнали!</a>
-        </div>
-      </div>
-      <div class="screen__disclaimer">
-        <div class="disclaimer">
-          <ul>
-            <li>
-              <a href="#">Правовая информация</a>
-            </li>
-            <li>
-              <a href="#">Подробные правила</a>
-            </li>
-          </ul>
         </div>
       </div>
     </section>
@@ -502,6 +462,50 @@
     </section>
 
   </main>
+
+  <div class="footer-wrap">
+
+    <div class="footer-wrap__inner footer-wrap__inner_prizes" data-footer="prizes">
+      <button class="screen__footer-enlarge js-footer-toggler" type="button" aria-label="Показать сообщение">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
+        </svg>
+      </button>
+      <button class="screen__footer-collapse js-footer-toggler" type="button" aria-label="Скрыть сообщение">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="12.3536" y1="0.353553" x2="0.738349" y2="11.9688" stroke="currentColor"/>
+          <line x1="0.738319" y1="0.539925" x2="12.3535" y2="12.1551" stroke="currentColor"/>
+        </svg>
+      </button>
+      <div class="screen__footer-wrapper">
+        <div class="screen__footer-announce">
+          <p class="screen__footer-label">Даты проведения конкурса:</p>
+          <p class="screen__footer-date">01 — 31.05 / 2020</p>
+        </div>
+        <div class="screen__footer-note">
+          <p>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
+            </svg>
+            <span>Скидка&nbsp;15% на&nbsp;единоразовое приобретение путёвки с&nbsp;1&nbsp;июня 2020 по&nbsp;31&nbsp;мая 2022&nbsp;года. Суммируется с&nbsp;другими акциями</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-wrap__inner footer-wrap__inner_rules" data-footer="rules">
+      <div class="disclaimer">
+        <ul>
+          <li>
+            <a href="#">Правовая информация</a>
+          </li>
+          <li>
+            <a href="#">Подробные правила</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

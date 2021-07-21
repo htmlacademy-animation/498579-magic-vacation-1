@@ -1,6 +1,10 @@
 .disclaimer {
   color: $c-dark;
-  background-color: $c-light;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     font-weight: 400;

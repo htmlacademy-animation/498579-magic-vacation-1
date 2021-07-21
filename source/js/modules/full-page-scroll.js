@@ -40,15 +40,49 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
-    this.screenElements.forEach((screen) => {
-      screen.classList.add(`screen--hidden`);
-      screen.classList.remove(`active`);
-    });
-    this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+    const previousScreen = [...this.screenElements].find((el) => !el.classList.contains(`screen--hidden`));
+    const currentScreen = this.screenElements[this.activeScreen];
+    const overlaySlide = document.createElement(`div`);
 
-    setTimeout(() => {
-      this.screenElements[this.activeScreen].classList.add(`active`);
-    }, 100);
+    overlaySlide.classList.add(`overlay-slide`);
+
+    if (previousScreen === currentScreen) {
+      return;
+    }
+
+    if (previousScreen && previousScreen.id === `story` && currentScreen.id === `prizes`) {
+      document.body.append(overlaySlide);
+
+      window.setTimeout(() => {
+        overlaySlide.classList.add(`active`);
+      }, 0);
+
+      window.setTimeout(() => {
+        previousScreen.classList.remove(`active`);
+        previousScreen.classList.add(`screen--hidden`);
+
+        currentScreen.classList.remove(`screen--hidden`);
+        currentScreen.classList.add(`active`);
+
+        overlaySlide.classList.remove(`active`);
+      }, 550);
+
+    } else {
+      this.screenElements.forEach((screen) => {
+        screen.classList.add(`screen--hidden`);
+        screen.classList.remove(`active`);
+      });
+
+      if (document.querySelector(`.overlay-slide`)) {
+        document.querySelector(`.overlay-slide`).remove();
+      }
+
+      currentScreen.classList.remove(`screen--hidden`);
+
+      setTimeout(() => {
+        currentScreen.classList.add(`active`);
+      }, 100);
+    }
   }
 
   changeActiveMenuItem() {

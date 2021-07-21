@@ -39,39 +39,110 @@
 }
 
 .screen__footer {
+  --duration: 300ms;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   color: $c-dark;
   background-color: $c-light;
-  z-index: 1;
+  z-index: 3;
   transform: translate3d(0, 100%, 0);
-  transition: transform 0.25s cubic-bezier(0, 0.93, 1, 0.93);
+  transition: transform var(--duration) cubic-bezier(0, 0.93, 1, 0.93);
 
-  body.loaded & {
+  &.active {
     transform: translate3d(0, 0, 0);
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 0 3.6rem 0 0;
+    height: 18rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    opacity: 1;
+    transform: translate3d(0, 100%, 0);
+    transition: transform var(--duration) cubic-bezier(0, 0.93, 1, 0.93);
 
-    &.screen__footer--full {
+    &::after {
+      content: "";
       width: 100%;
       height: 18rem;
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: 0 3.6rem 0 0;
+      background-color: $c-light;
+      z-index: -1;
+      transform: translate(calc(3.5rem - 100%), calc(100% - 3.5rem));
+      transform-origin: left bottom;
+      transition: transform 0.4s 0.2s ease-in;
+    }
+
+    & .screen__footer-wrapper {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &.screen__footer--full {
+      height: 18rem;
+
+      &::after {
+        transform: translate(0, 0);
+        transition: transform 0.4s ease-in;
+      }
+
+      & .screen__footer-wrapper {
+        opacity: 1;
+        transition: opacity 0.3s 0.4s;
+      }
     }
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 0 3.6rem 0 0;
+    height: 16rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+    opacity: 1;
+    transform: translate3d(0, 100%, 0);
+    transition: transform var(--duration) cubic-bezier(0, 0.93, 1, 0.93);
 
-    &.screen__footer--full {
+    &::after {
+      content: "";
       width: 100%;
       height: 16rem;
+      border-radius: 0 3.6rem 0 0;
+      background-color: $c-light;
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      transform: translate(calc(3.5rem - 100%), calc(100% - 3.5rem));
+      transform-origin: left bottom;
+      transition: transform 0.4s 0.2s ease-in;
+    }
+
+    & .screen__footer-wrapper {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &.screen__footer--full {
+      height: 16rem;
+
+      &::after {
+        transform: translate(0, 0);
+        transition: transform 0.4s ease-in;
+      }
+
+      & .screen__footer-wrapper {
+        opacity: 1;
+        transition: opacity 0.3s 0.4s;
+      }
     }
   }
 }

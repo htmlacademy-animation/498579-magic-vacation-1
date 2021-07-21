@@ -5,6 +5,27 @@ export default () => {
   let sliderContainer = document.getElementById(`story`);
   sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
 
+  document.body.addEventListener(`screenChanged`, (evt) => {
+    if (storySlider) {
+      storySlider.destroy();
+    }
+    changeThemeClass(evt.detail.screenName);
+  });
+
+  const changeThemeClass = (screen) => {
+    delete document.body.dataset.theme;
+
+    if (screen && screen !== `story`) {
+      return;
+    }
+
+    if (storySlider.activeIndex === 2 || storySlider.activeIndex === 3) {
+      document.body.dataset.theme = `blue`;
+    } else if (storySlider.activeIndex === 4 || storySlider.activeIndex === 5) {
+      document.body.dataset.theme = `lightblue`;
+    }
+  };
+
   const setSlider = function () {
     if (((window.innerWidth / window.innerHeight) < 1) || window.innerWidth < 769) {
       storySlider = new Swiper(`.js-slider`, {
@@ -26,6 +47,7 @@ export default () => {
             } else if (storySlider.activeIndex === 6 || storySlider.activeIndex === 7) {
               sliderContainer.style.backgroundImage = `url("img/slide4.jpg"), linear-gradient(180deg, rgba(45, 39, 63, 0) 0%, #2F2A42 16.85%)`;
             }
+            changeThemeClass();
           },
           resize: () => {
             storySlider.update();
@@ -60,6 +82,7 @@ export default () => {
             } else if (storySlider.activeIndex === 6) {
               sliderContainer.style.backgroundImage = `url("img/slide4.jpg")`;
             }
+            changeThemeClass();
           },
           resize: () => {
             storySlider.update();

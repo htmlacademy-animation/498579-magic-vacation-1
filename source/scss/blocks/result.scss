@@ -222,6 +222,12 @@
   font-size: 2.4rem;
   line-height: 1.2;
   color: $c-light;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+
+  .screen--result.screen--animated & {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     margin: auto auto 10px;
@@ -254,6 +260,10 @@
     width: 4rem;
     height: 4rem;
     color: $c-dark;
+    animation-name: roll-in-to-left;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: both;
 
     @media (min-width: $stop-scaling) {
       margin-left: 15px;
@@ -555,3 +565,5 @@
     transform: translateY(0) rotate(0);
   }
 }
+
+@include roll-in-to-left(40px, 0, 110deg);
