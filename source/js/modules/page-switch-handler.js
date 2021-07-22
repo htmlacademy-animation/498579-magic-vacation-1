@@ -1,6 +1,11 @@
 import AccentTypography from "./accent-typography";
 
 export default () => {
+  const storyTitle = new AccentTypography(`.slider__item-title`, `transform`, 400, `typography-active`);
+  const prizesTitle = new AccentTypography(`.prizes__title`, `transform`, 400, `typography-active`);
+  const gameTitle = new AccentTypography(`.game__title`, `transform`, 400, `typography-active`);
+  const rulesTitle = new AccentTypography(`.rules__title`, `transform`, 400, `typography-active`);
+
   document.body.addEventListener(`screenChanged`, (evt) => {
     const links = document.body.querySelectorAll(`.js-menu-link`);
     const headerNav = document.querySelector(`.js-header-nav`);
@@ -13,7 +18,6 @@ export default () => {
 
     switch (evt.detail.screenName) {
       case `story`:
-        const storyTitle = new AccentTypography(`.slider__item-title`, `transform`, 400, `typography-active`);
         storyTitle.destroyAnimation();
 
         setTimeout(() => {
@@ -22,7 +26,6 @@ export default () => {
         break;
 
       case `prizes`:
-        const prizesTitle = new AccentTypography(`.prizes__title`, `transform`, 400, `typography-active`);
         prizesTitle.destroyAnimation();
 
         setTimeout(() => {
@@ -31,7 +34,6 @@ export default () => {
         break;
 
       case `rules`:
-        const rulesTitle = new AccentTypography(`.rules__title`, `transform`, 400, `typography-active`);
         rulesTitle.destroyAnimation();
 
         setTimeout(() => {
@@ -40,7 +42,6 @@ export default () => {
         break;
 
       case `game`:
-        const gameTitle = new AccentTypography(`.game__title`, `transform`, 400, `typography-active`);
         gameTitle.destroyAnimation();
 
         setTimeout(() => {

@@ -1,15 +1,15 @@
 import AccentTypography from "../modules/accent-typography";
 
 export default () => {
+  const introTitle = new AccentTypography(`.intro__title`, `transform`, 500, `typography-active`);
+  const introDate = new AccentTypography(`.intro__date`, `transform`, 400, `typography-active`);
+
   document.body.addEventListener(`screenChanged`, (evt) => {
     if (evt.detail.screenName === `top`) {
       const headerNav = document.querySelector(`.js-header-nav`);
       const socialToggler = headerNav.querySelector(`.js-social-toggler`);
       const footer = document.querySelector(`.js-footer`);
       const introMessage = document.querySelector(`.intro__message`);
-
-      const introTitle = new AccentTypography(`.intro__title`, `transform`, 500, `typography-active`);
-      const introDate = new AccentTypography(`.intro__date`, `transform`, 400, `typography-active`);
 
       const headerNavDuration = parseInt(getComputedStyle(headerNav).getPropertyValue(`--duration`), 10);
       const introMessageDuration = parseInt(getComputedStyle(introMessage).getPropertyValue(`--duration`), 10);
