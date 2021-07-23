@@ -148,6 +148,12 @@
   justify-content: space-between;
   width: 17rem;
   z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s 0.5s;
+
+  .screen--story.active & {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     bottom: 28px;
@@ -164,6 +170,8 @@
 }
 
 .slider__control {
+  --themeColor: #a67ee5;
+
   @include btn-reset;
   position: relative;
   width: 4rem;
@@ -173,6 +181,21 @@
   @media (min-width: $stop-scaling) {
     width: 40px;
     height: 40px;
+  }
+
+  &_prev,
+  &_next {
+    animation-duration: 500ms;
+    animation-delay: 500ms;
+    animation-fill-mode: both;
+  }
+
+  &_prev {
+    animation-name: roll-in-to-right;
+  }
+
+  &_next {
+    animation-name: roll-in-to-left;
   }
 
   &::before {
@@ -200,7 +223,7 @@
   }
 
   &:hover {
-    color: $c-purple;
+    color: var(--themeColor);
 
     &::before {
       width: 112.5%;
@@ -209,11 +232,11 @@
   }
 
   &:focus {
-    color: $c-purple;
+    color: var(--themeColor);
     outline: none;
 
     &::before {
-      border-color: $c-purple;
+      border-color: var(--themeColor);
     }
   }
 
@@ -224,14 +247,38 @@
     &::before {
       width: 100%;
       height: 100%;
-      background-color: $c-purple;
-      border-color: $c-purple;
+      background-color: var(--themeColor);
+      border-color: var(--themeColor);
     }
   }
 
   &.swiper-button-disabled {
     opacity: 0.5;
     pointer-events: none;
+  }
+}
+
+body[data-theme="blue"] {
+  .slider__control {
+    &:hover,
+    &:focus,
+    &:focus::before,
+    &:active,
+    &:active:focus {
+      --themeColor: #90b8e2;
+    }
+  }
+}
+
+body[data-theme="lightblue"] {
+  .slider__control {
+    &:hover,
+    &:focus,
+    &:focus::before,
+    &:active,
+    &:active:focus {
+      --themeColor: #3f73ee;
+    }
   }
 }
 
@@ -247,6 +294,12 @@
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 4rem;
+  opacity: 0;
+  transition: opacity 0.3s 0.5s;
+
+  .screen--story.active & {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     bottom: 28px;
@@ -290,3 +343,15 @@
     }
   }
 }
+
+@keyframes roll-in-to-right {
+  0% {
+    transform: translate(-35px, 0) rotate(-150deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@include roll-in-to-left(40px, 0, 150deg);

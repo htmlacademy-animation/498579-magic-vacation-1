@@ -58,3 +58,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin roll-in-to-left($translateX, $translateY, $rotateDeg) {
+  @keyframes roll-in-to-left {
+    0% {
+      transform: translate($translateX, $translateY) rotate($rotateDeg);
+    }
+
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+}

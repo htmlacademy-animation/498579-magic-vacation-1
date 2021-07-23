@@ -43,7 +43,7 @@ export default class AccentTypography {
   }
 
   prepareText() {
-    const targetText = this.element.textContent.trim().split(` `);
+    const targetText = this.element.textContent.trim().split(/\s/).filter((item) => item);
 
     const contentParent = targetText.reduce((parentFragment, word, index) => {
       const wordElement = [...word].reduce((fragment, letter) => {

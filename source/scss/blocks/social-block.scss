@@ -10,12 +10,14 @@
 }
 
 .social-block__toggler {
+  --themeColor: #a67ee5;
+
   @include btn-reset;
   position: relative;
   display: block;
   width: 4rem;
   height: 4rem;
-  color: $c-dark;
+  color: var(--themeColor);
   border-radius: 50%;
   transition: color 0.25s ease-in-out;
 
@@ -40,13 +42,12 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
-    opacity: 0;
-    transition: opacity 0.35s 0.35s, transform 0.35s cubic-bezier(0, 0.93, 1, 0.93);
+    transform: scale(0);
+    transition: transform 0.4s cubic-bezier(0, 0.82, 0.72, 1.22) 0.1s;
+  }
 
-    body.loaded & {
-      opacity: 1;
-      animation: scale 0.5s cubic-bezier(0, 0.93, 1, 0.93) 0.35s;
-    }
+  &.active::before {
+    transform: scale(1);
   }
 
   svg {
@@ -54,23 +55,31 @@
     display: block;
     width: 2.3rem;
     height: 2.2rem;
+    opacity: 0;
+    transition: opacity 0.2s;
   }
 
-  &:hover,
-  .social-block--active & {
-    color: $c-purple;
+  &.active svg {
+    opacity: 1;
+  }
 
+  &:hover {
+    --themeColor: #5f458c;
+  }
+
+  .social-block--active & {
     &::before {
       transform: scale(1.13);
     }
   }
 
   &:focus {
-    color: $c-purple;
     outline: none;
+    --themeColor: #5f458c;
 
     &::before {
-      border-color: $c-purple;
+      --themeColor: #5f458c;
+      border-color: var(--themeColor);
     }
 
     & + .social-block__list {
@@ -81,13 +90,14 @@
 
   &:active,
   &:active:focus {
-    color: $c-light;
+    color: #ffffff;
 
     &::before {
+      --themeColor: #5f458c;
       width: 100%;
       height: 100%;
-      background-color: $c-purple;
-      border-color: $c-purple;
+      background-color: var(--themeColor);
+      border-color: var(--themeColor);
     }
   }
 }
@@ -216,7 +226,8 @@
   }
 
   &:hover {
-    color: $c-purple;
+    --themeColor: #5f458c;
+    color: var(--themeColor);
   }
 
   &:focus {
@@ -274,20 +285,46 @@
   }
 }
 
-@keyframes scale {
-  0% {
-    transform: scale(0);
+body[data-theme="blue"] {
+  .social-block__toggler {
+    --themeColor: #3f73ee;
+
+    &:hover,
+    &:focus,
+    &:focus::before,
+    &:active,
+    &:active:focus,
+    &:active::before,
+    &:active:focus::before {
+      --themeColor: #90b8e2;
+    }
   }
 
-  25% {
-    transform: scale(1);
+  .social-block__link {
+    &:hover {
+      --themeColor: #90b8e2;
+    }
+  }
+}
+
+body[data-theme="lightblue"] {
+  .social-block__toggler {
+    --themeColor: #90b8e2;
+
+    &:hover,
+    &:focus,
+    &:focus::before,
+    &:active,
+    &:active:focus,
+    &:active::before,
+    &:active:focus::before {
+      --themeColor: #3f73ee;
+    }
   }
 
-  50% {
-    transform: scale(1.13);
-  }
-
-  100% {
-    transform: scale(1);
+  .social-block__link {
+    &:hover {
+      --themeColor: #3f73ee;
+    }
   }
 }

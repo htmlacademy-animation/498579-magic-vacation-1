@@ -5,11 +5,6 @@
   right: 0;
   padding: 2.7rem 0;
   z-index: 10;
-  visibility: hidden;
-
-  body.loaded & {
-    visibility: visible;
-  }
 
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
@@ -33,6 +28,7 @@
 
 .page-header__logo {
   @include hover;
+  --duration: 350ms;
   position: relative;
   flex: none;
   top: -0.5rem;
@@ -42,9 +38,9 @@
   color: $c-light;
   transform: translate3d(-30px, 0, 0);
   opacity: 0;
-  transition: opacity 0.35s cubic-bezier(0, 0.93, 1, 0.93) 0.1s, transform 0.35s cubic-bezier(0, 0.93, 1, 0.93) 0.1s;
+  transition: opacity var(--duration) cubic-bezier(0, 0.93, 1, 0.93) 0.1s, transform 0.35s cubic-bezier(0, 0.93, 1, 0.93) 0.1s;
 
-  body.loaded & {
+  &.active {
     transform: translate3d(0, 0, 0);
     opacity: 1;
   }
@@ -141,12 +137,13 @@
 }
 
 .page-header__nav {
+  --duration: 350ms;
   display: flex;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.35s cubic-bezier(0, 0.93, 1, 0.93) 0.4s;
+  transition: opacity var(--duration) cubic-bezier(0, 0.93, 1, 0.93);
 
-  body.loaded & {
+  &.active {
     opacity: 1;
   }
 
@@ -256,6 +253,8 @@
   }
 
   a {
+    --themeColor: #a67ee5;
+
     position: relative;
     display: block;
     color: inherit;
@@ -297,13 +296,31 @@
 
     &:hover,
     &:focus {
-      color: $c-purple;
+      color: var(--themeColor);
       outline: none;
 
       &::after {
         opacity: 1;
-        background-color: $c-purple;
+        background-color: var(--themeColor);
       }
+    }
+  }
+}
+
+body[data-theme="blue"] {
+  .page-header__menu a {
+    &:hover,
+    &:focus {
+      --themeColor: #90b8e2;
+    }
+  }
+}
+
+body[data-theme="lightblue"] {
+  .page-header__menu a {
+    &:hover,
+    &:focus {
+      --themeColor: #3f73ee;
     }
   }
 }

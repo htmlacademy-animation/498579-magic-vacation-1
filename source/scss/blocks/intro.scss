@@ -88,6 +88,7 @@
 }
 
 .intro__message {
+  --duration: 500ms;
   flex: none;
   width: 50.9rem;
   max-width: 50%;
@@ -96,7 +97,7 @@
   line-height: 1.27;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s linear, transform 0.3s linear;
+  transition: opacity var(--duration) linear, transform 0.3s linear;
 
   @media (min-width: $stop-scaling) {
     width: 509px;
@@ -117,7 +118,7 @@
     line-height: 1.2;
   }
 
-  .screen.active & {
+  &.active {
     opacity: 1;
     transform: translateY(0);
   }

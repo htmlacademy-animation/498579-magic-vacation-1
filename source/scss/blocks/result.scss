@@ -53,7 +53,11 @@
   max-width: 1200px;
 
   @media (orientation: portrait) {
-    width: 146%;
+    width: 80%;
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    margin-bottom: 10rem;
   }
 }
 
@@ -70,6 +74,10 @@
     transform-origin: 50% 75%;
     z-index: 3;
 
+    @media (orientation: portrait) {
+      left: 5%;
+    }
+
     .screen--animated & {
       animation-name: pulse-up-down;
       animation-duration: 2s;
@@ -83,7 +91,7 @@
       opacity: 0;
       max-width: 100%;
       max-height: 100%;
-      animation-name: flamingo;
+      animation-name: show-flamingo;
       animation-duration: 0.4s;
       animation-iteration-count: 1;
       animation-timing-function: linear;
@@ -96,13 +104,17 @@
     left: 30%;
     min-width: 300px;
     width: 42%;
-    transform: scale(0);
-    transition: transform 0.5s cubic-bezier(0, 0.82, 0.72, 1.22);
-    transform-origin: 50% 70%;
+    transform: scale(0) translateY(100%);
+    transition: transform 0.4s cubic-bezier(0, 0.82, 0.72, 1.22);
+    transform-origin: bottom center;
     z-index: 2;
 
+    @media (orientation: portrait) {
+      left: 18%;
+    }
+
     .screen--animated & {
-      transform: scale(1);
+      transform: scale(1) translateY(0);
     }
   }
 
@@ -115,6 +127,10 @@
     opacity: 0;
     transform-origin: left 80%;
     transform: rotate(-10deg);
+
+    @media (orientation: portrait) {
+      left: 45%;
+    }
 
     .screen--animated & {
       animation-name: waving-green-leaf;
@@ -134,10 +150,14 @@
     transform-origin: 20% 60%;
     transform: rotate(-30deg);
 
+    @media (orientation: portrait) {
+      left: 46%;
+    }
+
     .screen--animated & {
       animation-name: waving;
       animation-duration: 2s;
-      animation-delay: 0.3s;
+      animation-delay: 0.25s;
       animation-fill-mode: both;
     }
   }
@@ -152,10 +172,14 @@
     transform-origin: 95% 35%;
     transform: rotate(50deg);
 
+    @media (orientation: portrait) {
+      left: -5%;
+    }
+
     .screen--animated & {
       animation-name: waving-2;
       animation-duration: 2.2s;
-      animation-delay: 0.35s;
+      animation-delay: 0.25s;
       animation-fill-mode: both;
     }
   }
@@ -222,6 +246,12 @@
   font-size: 2.4rem;
   line-height: 1.2;
   color: $c-light;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+
+  .screen--result.screen--animated & {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     margin: auto auto 10px;
@@ -254,6 +284,10 @@
     width: 4rem;
     height: 4rem;
     color: $c-dark;
+    animation-name: roll-in-to-left;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: both;
 
     @media (min-width: $stop-scaling) {
       margin-left: 15px;
@@ -322,7 +356,9 @@
   & .form__button {
     opacity: 0;
     color: transparent;
-    transition: opacity 0.3s 0.5s, color 0.3s 0.6s;
+    transition:
+      opacity 0.3s 0.5s,
+      color 0.3s 0.6s;
 
     .screen--animated & {
       opacity: 1;
@@ -334,7 +370,11 @@
     width: 0;
     padding: 0 3rem;
     opacity: 0;
-    transition: opacity 0.2s 0.6s, width 0.3s 0.6s, padding 0.1s 0.6s;
+    // todo change to transform
+    transition:
+      opacity 0.2s 0.6s,
+      width 0.3s 0.6s,
+      padding 0.1s 0.6s;
 
     &::placeholder {
       color: transparent;
@@ -432,14 +472,17 @@
     animation-timing-function: cubic-bezier(0.42, 0.71, 0.56, 0.78);
   }
 
-  20% {
+  10% {
     opacity: 0.7;
+  }
+
+  20% {
+    opacity: 1;
     transform: rotate(7deg);
     animation-timing-function: cubic-bezier(0.42, 0.71, 0.56, 0.78);
   }
 
   40% {
-    opacity: 1;
     transform: rotate(-7deg);
     animation-timing-function: cubic-bezier(0.42, 0.71, 0.56, 0.78);
   }
@@ -467,14 +510,17 @@
     animation-timing-function: cubic-bezier(0.42, 0.71, 0.56, 0.78);
   }
 
-  20% {
+  10% {
     opacity: 0.8;
+  }
+
+  20% {
+    opacity: 1;
     transform: rotate(-7deg);
     animation-timing-function: cubic-bezier(0.42, 0.71, 0.56, 0.78);
   }
 
   40% {
-    opacity: 1;
     transform: rotate(7deg);
     animation-timing-function: cubic-bezier(0.42, 0.71, 0.56, 0.78);
   }
@@ -530,7 +576,7 @@
   }
 }
 
-@keyframes flamingo {
+@keyframes show-flamingo {
   0% {
     opacity: 0;
     transform: rotate(-25deg) translateY(100%);
@@ -555,3 +601,5 @@
     transform: translateY(0) rotate(0);
   }
 }
+
+@include roll-in-to-left(40px, 0, 110deg);
