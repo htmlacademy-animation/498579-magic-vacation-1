@@ -346,7 +346,7 @@ body[data-theme="lightblue"] {
 
 @keyframes roll-in-to-right {
   0% {
-    transform: translate(-35px, 0) rotate(-150deg);
+    transform: translate(-3.6rem, 0) rotate(-150deg);
   }
 
   100% {
@@ -354,4 +354,4 @@ body[data-theme="lightblue"] {
   }
 }
 
-@include roll-in-to-left(40px, 0, 150deg);
+@include roll-in-to-left(4rem, 0, 150deg);

@@ -7,25 +7,20 @@ export const header = () => {
   const headerLogoDuration = parseInt(getComputedStyle(headerLogo).getPropertyValue(`--duration`), 10);
   const headerNavDuration = parseInt(getComputedStyle(headerNav).getPropertyValue(`--duration`), 10);
 
-  // Start header animation
-
   links.forEach((link) => {
     link.classList.remove(`active`);
   });
 
-  // Show logo
   setTimeout(() => {
     headerLogo.classList.add(`active`);
   }, 0);
 
-  // Show navigation
   headerLogo.addEventListener(`transitionstart`, () => {
     setTimeout(() => {
       headerNav.classList.add(`active`);
     }, headerLogoDuration * 0.8);
   });
 
-  // Underline current item in navigation
   headerNav.addEventListener(`transitionstart`, () => {
     setTimeout(() => {
       const location = window.location.hash.slice(1);
@@ -35,7 +30,6 @@ export const header = () => {
     }, headerNavDuration);
   });
 
-  //  Show button with social links
   headerNav.addEventListener(`transitionstart`, () => {
     setTimeout(() => {
       socialToggler.classList.add(`active`);
