@@ -38,7 +38,13 @@ export default class FullPageScroll {
   activateSvg() {
     if (this.activeScreen === 2 && this.previousScreen !== 2) {
       const image = document.querySelector(`.js-prize-1`);
+      const image2 = document.querySelector(`.js-prize-2`);
+
       image.src = `img/module-3/img/primary-award.svg?${new Date().getTime()}`;
+
+      setTimeout(() => {
+        image2.src = `img/module-3/img/secondary-award.svg?${new Date().getTime()}`;
+      }, 3500)
     }
   }
 
