@@ -39,12 +39,18 @@ export default class FullPageScroll {
     if (this.activeScreen === 2 && this.previousScreen !== 2) {
       const image = document.querySelector(`.js-prize-1`);
       const image2 = document.querySelector(`.js-prize-2`);
+      const image3 = document.querySelector(`.js-prize-3`);
 
-      image.src = `img/module-3/img/primary-award.svg?${new Date().getTime()}`;
+      image.src = `${image.dataset.img}?${new Date().getTime()}`;
 
       setTimeout(() => {
-        image2.src = `img/module-3/img/secondary-award.svg?${new Date().getTime()}`;
-      }, 3500)
+        image2.src = `${image2.dataset.img}?${new Date().getTime()}`;
+      }, 3500);
+
+      setTimeout(() => {
+        image3.src = `${image3.dataset.img}?${new Date().getTime()}`;
+      }, 6500);
+
     }
   }
 
