@@ -220,10 +220,21 @@
   }
 
   &--codes {
-    opacity: 0;
-
-    @media (max-width: $tablet) and (orientation: portrait) {
+    @media (min-width: $tablet) and (orientation: landscape) {
       padding-left: 0.8rem;
+      animation-name: fadeIn;
+      animation-duration: 400ms;
+      animation-delay: 6s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: both;
+    }
+
+    @media (max-width: $tablet) and (orientation: landscape) {
+      animation-name: fadeIn;
+      animation-duration: 400ms;
+      animation-delay: 6s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: both;
     }
 
     .prizes__icon {
@@ -371,14 +382,3 @@
     transform: translateX(0);
   }
 }
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;;
-  }
-
-  100% {
-    opacity: 1;;
-  }
-}
-
